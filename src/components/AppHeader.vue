@@ -1,25 +1,40 @@
 <template>
-  <v-app>
+  <div>
+    <v-navigation-drawer absolute temporary v-model="drawer" class="hidden-md-and-up">
+      <v-list>
+        <v-list-title v-for="(item, i) in menuItems" :key="`navdrawer${i}`">
+          <v-list-title-action>
+            <v-icon v-html="item.icon"></v-icon>
+          </v-list-title-action>
+          <v-list-title-content>
+            <v-list-title-title v-text="item.title"></v-list-title-title>
+          </v-list-title-content>
+        </v-list-title>
+      </v-list>
+    </v-navigation-drawer>
     <v-toolbar app dark class="primary">
-      <v-toolbar-title v-text="'Учи Kotlin'"></v-toolbar-title>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
+      <router-link to="/" tag="span" style="cursor:pointer">
+        <v-toolbar-title v-text="'Учи Kotlin'"></v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn
-          v-for="(item, i) in menuItems"
-          flat
-          :key="`menuitem${i}`"
-          :to="item.route"
-        >
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn v-for="(item, i) in menuItems" flat :key="`menuitem${i}`" :to="item.route">
           <v-icon left v-html="item.icon"></v-icon>
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-  </v-app>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      drawer: false,
+    }
+  },
   computed: {
     menuItems() {
       return [
@@ -31,7 +46,7 @@ export default {
         {
           icon: 'extension',
           title: 'Учить',
-          route: '/learn',
+          route: '/words',
         },
         {
           icon: 'home',
@@ -46,7 +61,7 @@ export default {
         {
           icon: 'login',
           title: 'Войти',
-          route: '/login',
+          route: '/signin',
         },
         {
           icon: 'lock_open',
