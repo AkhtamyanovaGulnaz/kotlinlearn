@@ -2,14 +2,14 @@
   <div>
     <v-navigation-drawer absolute temporary v-model="drawer" class="hidden-md-and-up">
       <v-list>
-        <v-list-title v-for="(item, i) in menuItems" :key="`navdrawer${i}`">
-          <v-list-title-action>
+        <v-list-tile v-for="(item, i) in menuItems" :key="`navdrawer${i}`" :to="item.route">
+          <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
-          </v-list-title-action>
-          <v-list-title-content>
-            <v-list-title-title v-text="item.title"></v-list-title-title>
-          </v-list-title-content>
-        </v-list-title>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app dark class="primary">
