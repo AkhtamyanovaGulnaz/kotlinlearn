@@ -36,39 +36,45 @@ export default {
     }
   },
   computed: {
+    isUserAuthenticated() {
+      return this.$store.getters.isUserAuthenticated
+    },
     menuItems() {
-      return [
-        {
-          icon: 'visibility',
-          title: 'Читать',
-          route: '/books',
-        },
-        {
-          icon: 'extension',
-          title: 'Учить',
-          route: '/words',
-        },
-        {
-          icon: 'home',
-          title: 'Мой кабинет',
-          route: '/profile',
-        },
-        {
-          icon: 'logout',
-          title: 'Выйти',
-          route: '/logout',
-        },
-        {
-          icon: 'login',
-          title: 'Войти',
-          route: '/signin',
-        },
-        {
-          icon: 'lock_open',
-          title: 'Зарегестрироваться',
-          route: '/signup',
-        },
-      ]
+      return this.isUserAuthenticated
+        ? [
+            {
+              icon: 'visibility',
+              title: 'Читать',
+              route: '/books',
+            },
+            {
+              icon: 'home',
+              title: 'Мой кабинет',
+              route: '/profile',
+            },
+            {
+              icon: 'logout',
+              title: 'Выйти',
+              route: '/logout',
+            },
+          ]
+        : [
+            {
+              icon: 'visibility',
+              title: 'Читать',
+              route: '/books',
+            },
+            {
+              icon: 'login',
+              title: 'Войти',
+              route: '/signin',
+            },
+            {
+              icon: 'lock_open',
+              title: 'Зарегестрироваться',
+              route: '/signup',
+            },
+          ]
     },
   },
 }
