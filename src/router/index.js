@@ -6,7 +6,6 @@ import Words from '../views/Words.vue'
 import Profile from '../views/Profile.vue'
 import Signin from '../views/Signin.vue'
 import Signup from '../views/Signup.vue'
-import Logout from '../views/Logout.vue'
 
 Vue.use(Router)
 
@@ -41,11 +40,6 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: Signup,
-    },
-    {
-      path: '/logout',
-      name: 'logout',
-      component: Logout,
     },
   ],
   mode: 'history',

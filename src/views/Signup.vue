@@ -4,20 +4,20 @@
       <v-flex xs12 sm8 md6>
         <v-card class="elevation-12">
           <v-toolbar dark color="primary">
-            <v-toolbar-title>Регестрация</v-toolbar-title>
+            <v-toolbar-title>Регистрация</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-alert :value="error" type="warning">
               {{ error }}
             </v-alert>
-            <v-form>
-              <v-text-field prepend-icon="person" name="login" label="Е-мейл" type="email" required v-model="email"></v-text-field>
-              <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password"></v-text-field>
+            <v-form v-model="valid">
+              <v-text-field prepend-icon="person" name="login" label="Е-мейл" type="email" required v-model="email" :rules="emailRules"></v-text-field>
+              <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click.prevent="signup" :disabled="processing">Зарегестрироваться</v-btn>
+            <v-btn color="primary" @click.prevent="signup" :disabled="processing || !valid">Зарегистрироваться</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -31,6 +31,9 @@ export default {
     return {
       email: null,
       password: null,
+      valid: false,
+      emailRules: [(v) => !!v || 'Пожалуйста введите е-майл', (v) => /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильный е-майл'],
+      passwordRules: [(v) => !!v || 'Пожалуйста введите пароль', (v) => (v && v.length >= 6) || 'Пароль слишком короткий - минимум 6 символов'],
     }
   },
   computed: {
