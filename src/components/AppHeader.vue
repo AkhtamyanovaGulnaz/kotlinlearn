@@ -23,10 +23,35 @@
           <v-icon left v-html="item.icon"></v-icon>
           {{ item.title }}
         </v-btn>
-        <v-btn flat @click.prevent="signout" v-if="isUserAuthenticated">
-          <v-icon left>logout</v-icon>
-          Выйти
-        </v-btn>
+
+        <v-dialog v-model="dialog" width="350" v-if="isUserAuthenticated">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn flat v-bind="attrs" v-on="on">
+              <v-icon left>logout</v-icon>
+              Выйти
+            </v-btn>
+          </template>
+
+          <v-card>
+            <v-card-title class="headline grey lighten-2">
+              Выйти?
+            </v-card-title>
+
+            <v-card-text>
+              Вы действительно хотите выйти?
+            </v-card-text>
+            <v-divider></v-divider>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" text @click="signout">
+                Да
+              </v-btn>
+              <v-btn color="primary" text @click="dialog = false">
+                Нет
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -37,6 +62,7 @@ export default {
   data() {
     return {
       drawer: false,
+      dialog: false,
     }
   },
   computed: {
@@ -79,6 +105,7 @@ export default {
   methods: {
     signout() {
       this.$store.dispatch('SIGNOUT')
+      this.dialog = false
     },
   },
 }
