@@ -102,10 +102,10 @@ export default {
     bookParts: [
       {
         bookId: 'kdk4334dkkdkd546k',
-        bookPartId: 'ffffsjsjsnn',
+        bookPartId: 'sskskks',
         bookTitle: 'Какая-то статья - 3',
         partTitle: 'Глава 1',
-        youtube_id: 'ddldlldld',
+        youtube_id: 'hNw4g7r_WSw',
         content: [
           {
             sentences: [

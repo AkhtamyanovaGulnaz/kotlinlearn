@@ -31,7 +31,7 @@ export default new Router({
       component: Book,
     },
     {
-      path: '/book/:BookId/part/:partId',
+      path: '/book/:bookId/part/:partId',
       name: 'bookPart',
       props: true,
       component: BookPart,
