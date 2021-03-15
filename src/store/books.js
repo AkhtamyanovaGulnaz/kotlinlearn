@@ -1,103 +1,106 @@
+import Vue from 'vue'
+
 export default {
   state: {
-    books: [
-      {
-        id: 'kdkdkkdkdk',
-        title: 'Какая-то статья - 1',
-        description: 'Какая то часть статьи - 1',
-        image: 'kskdkdk',
-        level: ['сложный', 'средний'],
-        rating: 4,
-        ratingsCount: 100,
-        youtube_playlist_id: 'dkdkdkd',
-        parts: [
-          {
-            id: 'sskskks',
-            title: 'Глава 1',
-            youtube_id: 'ddldlldld',
-          },
-          {
-            id: 'sskskks2',
-            title: 'Глава 2',
-            youtube_id: 'ddldlldld2',
-          },
-          {
-            id: 'sskskks3',
-            title: 'Глава 3',
-            youtube_id: 'ddldlldld3',
-          },
-          {
-            id: 'sskskks4',
-            title: 'Глава 4',
-            youtube_id: 'ddldlldld4',
-          },
-        ],
-      },
-      {
-        id: 'kdkdkkdkd546k',
-        title: 'Какая-то статья - 2',
-        description: 'Какая то часть статьи - 2',
-        image: 'kskdkdk445',
-        level: ['средний', 'легкий'],
-        rating: 3.5,
-        ratingsCount: 70,
-        youtube_playlist_id: 'dkd9499kdkd',
-        parts: [
-          {
-            id: 'sskskks',
-            title: 'Глава 1',
-            youtube_id: 'ddldlldld',
-          },
-          {
-            id: 'sskskks2',
-            title: 'Глава 2',
-            youtube_id: 'ddldlldld2',
-          },
-          {
-            id: 'sskskks3',
-            title: 'Глава 3',
-            youtube_id: 'ddldlldld3',
-          },
-          {
-            id: 'sskskks4',
-            title: 'Глава 4',
-            youtube_id: 'ddldlldld4',
-          },
-        ],
-      },
-      {
-        id: 'kdk4334dkkdkd546k',
-        title: 'Какая-то статья - 3',
-        description: 'Какая то часть статьи - 3',
-        image: 'kskd000kdk445',
-        level: ['средний'],
-        rating: 5,
-        ratingsCount: 126,
-        youtube_playlist_id: '00kd9499kdkd',
-        parts: [
-          {
-            id: 'sskskks',
-            title: 'Глава 1',
-            youtube_id: 'ddldlldld',
-          },
-          {
-            id: 'sskskks2',
-            title: 'Глава 2',
-            youtube_id: 'ddldlldld2',
-          },
-          {
-            id: 'sskskks3',
-            title: 'Глава 3',
-            youtube_id: 'ddldlldld3',
-          },
-          {
-            id: 'sskskks4',
-            title: 'Глава 4',
-            youtube_id: 'ddldlldld4',
-          },
-        ],
-      },
-    ],
+    books: [],
+    // books: [
+    //   {
+    //     id: 'kdkdkkdkdk',
+    //     title: 'Какая-то статья - 1',
+    //     description: 'Какая то часть статьи - 1',
+    //     image: 'kskdkdk',
+    //     level: ['сложный', 'средний'],
+    //     rating: 4,
+    //     ratingsCount: 100,
+    //     youtube_playlist_id: 'dkdkdkd',
+    //     parts: [
+    //       {
+    //         id: 'sskskks',
+    //         title: 'Глава 1',
+    //         youtube_id: 'ddldlldld',
+    //       },
+    //       {
+    //         id: 'sskskks2',
+    //         title: 'Глава 2',
+    //         youtube_id: 'ddldlldld2',
+    //       },
+    //       {
+    //         id: 'sskskks3',
+    //         title: 'Глава 3',
+    //         youtube_id: 'ddldlldld3',
+    //       },
+    //       {
+    //         id: 'sskskks4',
+    //         title: 'Глава 4',
+    //         youtube_id: 'ddldlldld4',
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     id: 'kdkdkkdkd546k',
+    //     title: 'Какая-то статья - 2',
+    //     description: 'Какая то часть статьи - 2',
+    //     image: 'kskdkdk445',
+    //     level: ['средний', 'легкий'],
+    //     rating: 3.5,
+    //     ratingsCount: 70,
+    //     youtube_playlist_id: 'dkd9499kdkd',
+    //     parts: [
+    //       {
+    //         id: 'sskskks',
+    //         title: 'Глава 1',
+    //         youtube_id: 'ddldlldld',
+    //       },
+    //       {
+    //         id: 'sskskks2',
+    //         title: 'Глава 2',
+    //         youtube_id: 'ddldlldld2',
+    //       },
+    //       {
+    //         id: 'sskskks3',
+    //         title: 'Глава 3',
+    //         youtube_id: 'ddldlldld3',
+    //       },
+    //       {
+    //         id: 'sskskks4',
+    //         title: 'Глава 4',
+    //         youtube_id: 'ddldlldld4',
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     id: 'kdk4334dkkdkd546k',
+    //     title: 'Какая-то статья - 3',
+    //     description: 'Какая то часть статьи - 3',
+    //     image: 'kskd000kdk445',
+    //     level: ['средний'],
+    //     rating: 5,
+    //     ratingsCount: 126,
+    //     youtube_playlist_id: '00kd9499kdkd',
+    //     parts: [
+    //       {
+    //         id: 'sskskks',
+    //         title: 'Глава 1',
+    //         youtube_id: 'ddldlldld',
+    //       },
+    //       {
+    //         id: 'sskskks2',
+    //         title: 'Глава 2',
+    //         youtube_id: 'ddldlldld2',
+    //       },
+    //       {
+    //         id: 'sskskks3',
+    //         title: 'Глава 3',
+    //         youtube_id: 'ddldlldld3',
+    //       },
+    //       {
+    //         id: 'sskskks4',
+    //         title: 'Глава 4',
+    //         youtube_id: 'ddldlldld4',
+    //       },
+    //     ],
+    //   },
+    // ],
 
     bookParts: [
       {
@@ -184,6 +187,32 @@ export default {
   mutations: {
     SET_BOOKS(state, payload) {
       state.books = payload
+    },
+  },
+  actions: {
+    LOAD_BOOKS({ commit }) {
+      Vue.$db
+        .collection('books')
+        .get()
+        .then((querySnapshot) => {
+          let books = []
+          querySnapshot.forEach((s) => {
+            const data = s.data()
+            let book = {
+              id: s.id,
+              title: data.title,
+              description: data.description,
+              imageUrl: data.imageUrl,
+              level: data.level.slice(),
+              youtube_playlist_id: data.youtube_playlist_id,
+              parts: [],
+            }
+            books.push(book)
+          })
+
+          commit('SET_BOOKS', books)
+        })
+        .catch((error) => console.log(error))
     },
   },
   getters: {

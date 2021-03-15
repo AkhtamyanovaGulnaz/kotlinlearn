@@ -3,8 +3,7 @@
     <v-container fluid>
       <v-layout row class="hidden-sm-and-down">
         <v-flex xs6 md5>
-          <v-card-media src="https://i0.wp.com/blog.zenika.com/wp-content/uploads/2018/03/Kotlin-A-New-Programming-Platform-For-Android-Developers-1.png?fit=1000%2C500&ssl=1" height="100px">
-          </v-card-media>
+          <v-card-media src="book.imageUrl" height="100px"> </v-card-media>
           <div class="text-xs-center">
             <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
@@ -19,11 +18,11 @@
             </div>
           </v-card-title>
           <v-card-actions>
-            <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
+            <!-- <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
             <div class="ml-1">
               <span>{{ book.rating }}</span>
               <span>({{ book.ratingsCount }})</span>
-            </div>
+            </div> -->
             <v-spacer></v-spacer>
             <v-btn class="primary" flat :to="{ name: 'book', params: { id: book.id } }">Открыть</v-btn>
           </v-card-actions>
@@ -32,8 +31,7 @@
       <div class="hidden-md-and-up">
         <v-layout row>
           <v-flex xs6 md5>
-            <v-card-media src="https://i0.wp.com/blog.zenika.com/wp-content/uploads/2018/03/Kotlin-A-New-Programming-Platform-For-Android-Developers-1.png?fit=1000%2C500&ssl=1" height="100px">
-            </v-card-media>
+            <v-card-media src="book.imageUrl" height="100px"> </v-card-media>
           </v-flex>
           <v-flex xs8 md9>
             <v-card-title>
@@ -59,11 +57,11 @@
         <v-layout row>
           <v-flex xs12>
             <v-card-actions>
-              <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
+              <!-- <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
               <div class="ml-1">
                 <span>{{ book.rating }}</span>
                 <span>({{ book.ratingsCount }})</span>
-              </div>
+              </div> -->
               <v-spacer></v-spacer>
               <v-btn class="primary" flat :to="{ name: 'book', params: { id: book.id } }">Открыть</v-btn>
             </v-card-actions>
