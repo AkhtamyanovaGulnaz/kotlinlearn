@@ -102,87 +102,87 @@ export default {
     //   },
     // ],
 
-    bookParts: [
-      {
-        bookId: 'kdk4334dkkdkd546k',
-        bookPartId: 'sskskks',
-        bookTitle: 'Какая-то статья - 3',
-        partTitle: 'Глава 1',
-        youtube_id: 'hNw4g7r_WSw',
-        content: [
-          {
-            sentences: [
-              {
-                origText: 'i love you',
-                transText: 'я люблю тебя',
-              },
-              {
-                origText: 'i love my family',
-                transText: 'я люблю мою семью',
-              },
-              {
-                origText: 'i love world',
-                transText: 'я люблю мир',
-              },
-            ],
-          },
-          {
-            sentences: [
-              {
-                origText: 'i love you 2',
-                transText: 'я люблю тебя 2',
-              },
-              {
-                origText: 'i love my family 2',
-                transText: 'я люблю мою семью 2',
-              },
-              {
-                origText: 'i love world 2',
-                transText: 'я люблю мир 2',
-              },
-              {
-                origText: 'i love world 3',
-                transText: 'я люблю мир 3',
-              },
-            ],
-          },
-        ],
-        words: [
-          {
-            origWord: 'Hello',
-            transWord: 'Привет',
-          },
-          {
-            origWord: 'Hello1',
-            transWord: 'Привет1',
-          },
-          {
-            origWord: 'Hello2',
-            transWord: 'Привет2',
-          },
-          {
-            origWord: 'Hello3',
-            transWord: 'Привет3',
-          },
-          {
-            origWord: 'Hello4',
-            transWord: 'Привет4',
-          },
-          {
-            origWord: 'Hello5',
-            transWord: 'Привет5',
-          },
-          {
-            origWord: 'Hello6',
-            transWord: 'Привет6',
-          },
-          {
-            origWord: 'Hello7',
-            transWord: 'Привет7',
-          },
-        ],
-      },
-    ],
+    // bookParts: [
+    //   {
+    //     bookId: 'kdk4334dkkdkd546k',
+    //     bookPartId: 'sskskks',
+    //     bookTitle: 'Какая-то статья - 1',
+    //     partTitle: 'Глава 1',
+    //     youtube_id: 'hNw4g7r_WSw',
+    //     content: [
+    //       {
+    //         sentences: [
+    //           {
+    //             origText: 'i love you',
+    //             transText: 'я люблю тебя',
+    //           },
+    //           {
+    //             origText: 'i love my family',
+    //             transText: 'я люблю мою семью',
+    //           },
+    //           {
+    //             origText: 'i love world',
+    //             transText: 'я люблю мир',
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         sentences: [
+    //           {
+    //             origText: 'i love you 2',
+    //             transText: 'я люблю тебя 2',
+    //           },
+    //           {
+    //             origText: 'i love my family 2',
+    //             transText: 'я люблю мою семью 2',
+    //           },
+    //           {
+    //             origText: 'i love world 2',
+    //             transText: 'я люблю мир 2',
+    //           },
+    //           {
+    //             origText: 'i love world 3',
+    //             transText: 'я люблю мир 3',
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //     words: [
+    //       {
+    //         origWord: 'Hello',
+    //         transWord: 'Привет',
+    //       },
+    //       {
+    //         origWord: 'Hello1',
+    //         transWord: 'Привет1',
+    //       },
+    //       {
+    //         origWord: 'Hello2',
+    //         transWord: 'Привет2',
+    //       },
+    //       {
+    //         origWord: 'Hello3',
+    //         transWord: 'Привет3',
+    //       },
+    //       {
+    //         origWord: 'Hello4',
+    //         transWord: 'Привет4',
+    //       },
+    //       {
+    //         origWord: 'Hello5',
+    //         transWord: 'Привет5',
+    //       },
+    //       {
+    //         origWord: 'Hello6',
+    //         transWord: 'Привет6',
+    //       },
+    //       {
+    //         origWord: 'Hello7',
+    //         transWord: 'Привет7',
+    //       },
+    //     ],
+    //   },
+    // ],
   },
   mutations: {
     SET_BOOKS(state, payload) {
@@ -202,11 +202,25 @@ export default {
               id: s.id,
               title: data.title,
               description: data.description,
-              imageUrl: data.imageUrl,
+              imageUrl: data.imageURL,
               level: data.level.slice(),
               youtube_playlist_id: data.youtube_playlist_id,
-              parts: [],
             }
+
+            let parts = []
+            if (data.parts) {
+              data.parts.forEach((p) => {
+                let part = {
+                  id: p.id,
+                  title: p.title,
+                  youtube_id: p.youtube_id,
+                }
+
+                parts.push(part)
+              })
+            }
+            book.parts = parts
+
             books.push(book)
           })
 
@@ -217,6 +231,5 @@ export default {
   },
   getters: {
     getBooks: (state) => state.books,
-    getParts: (state) => state.bookParts,
   },
 }

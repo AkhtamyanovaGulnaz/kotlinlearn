@@ -3,8 +3,7 @@
     <v-container fluid>
       <v-layout row class="hidden-sm-and-down">
         <v-flex xs6 md5>
-          <v-card-media src="https://i0.wp.com/blog.zenika.com/wp-content/uploads/2018/03/Kotlin-A-New-Programming-Platform-For-Android-Developers-1.png?fit=1000%2C500&ssl=1" height="150px">
-          </v-card-media>
+          <v-card-media :src="book.imageUrl" height="150px"> </v-card-media>
           <div class="text-xs-center">
             <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
@@ -19,13 +18,13 @@
             </div>
           </v-card-title>
           <v-card-actions>
-            <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
-            <div class="ml-1">
+            <!-- <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating> -->
+            <!-- <div class="ml-1">
               <span>{{ book.rating }}</span>
               <span>({{ book.ratingsCount }})</span>
-            </div>
+            </div> -->
             <v-spacer></v-spacer>
-            <v-btn class="primary" flat>Загрузить</v-btn>
+            <v-btn class="primary" flat v-if="canLoadBook(book.id)" @click="loadBook(book.id)">Загрузить</v-btn>
           </v-card-actions>
         </v-flex>
       </v-layout>
@@ -76,6 +75,7 @@
 
 <script>
 import * as bookHelper from '../helpers/book'
+import { mapGetters } from 'vuex'
 export default {
   props: {
     book: {
@@ -83,8 +83,21 @@ export default {
       required: true,
     },
   },
+  computed: {
+    ...mapGetters(['isUserAuthenticated', 'userData', 'getProcessing']),
+  },
   methods: {
     getBookLevel: bookHelper.getBookLevel,
+    canLoadBook(bookId) {
+      let book = this.getUserDataBook(bookId)
+      return this.isUserAuthenticated && !this.getProcessing && !book
+    },
+    getUserDataBook(bookId) {
+      return this.userData.books[bookId]
+    },
+    loadBook(bookId) {
+      this.$store.dispatch('ADD_USER_BOOK', bookId)
+    },
   },
 }
 </script>

@@ -25,13 +25,13 @@ export default new Router({
       component: Books,
     },
     {
-      path: '/book/:id',
+      path: '/books/:id',
       name: 'book',
       props: true,
       component: Book,
     },
     {
-      path: '/book/:bookId/part/:partId',
+      path: '/books/:bookId/part/:partId',
       name: 'bookPart',
       props: true,
       component: BookPart,

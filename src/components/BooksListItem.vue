@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-layout row class="hidden-sm-and-down">
         <v-flex xs6 md5>
-          <v-card-media src="book.imageUrl" height="100px"> </v-card-media>
+          <v-card-media :src="book.imageUrl" height="100px"> </v-card-media>
           <div class="text-xs-center">
             <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
