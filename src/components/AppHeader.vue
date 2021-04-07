@@ -106,6 +106,7 @@ export default {
     signout() {
       this.$store.dispatch('SIGNOUT')
       this.dialog = false
+      this.$store.push({ name: 'home' })
     },
   },
 }

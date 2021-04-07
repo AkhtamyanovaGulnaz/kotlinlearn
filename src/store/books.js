@@ -24,16 +24,6 @@ export default {
     //         title: 'Глава 2',
     //         youtube_id: 'ddldlldld2',
     //       },
-    //       {
-    //         id: 'sskskks3',
-    //         title: 'Глава 3',
-    //         youtube_id: 'ddldlldld3',
-    //       },
-    //       {
-    //         id: 'sskskks4',
-    //         title: 'Глава 4',
-    //         youtube_id: 'ddldlldld4',
-    //       },
     //     ],
     //   },
     //   {
@@ -55,16 +45,6 @@ export default {
     //         id: 'sskskks2',
     //         title: 'Глава 2',
     //         youtube_id: 'ddldlldld2',
-    //       },
-    //       {
-    //         id: 'sskskks3',
-    //         title: 'Глава 3',
-    //         youtube_id: 'ddldlldld3',
-    //       },
-    //       {
-    //         id: 'sskskks4',
-    //         title: 'Глава 4',
-    //         youtube_id: 'ddldlldld4',
     //       },
     //     ],
     //   },
@@ -88,16 +68,6 @@ export default {
     //         title: 'Глава 2',
     //         youtube_id: 'ddldlldld2',
     //       },
-    //       {
-    //         id: 'sskskks3',
-    //         title: 'Глава 3',
-    //         youtube_id: 'ddldlldld3',
-    //       },
-    //       {
-    //         id: 'sskskks4',
-    //         title: 'Глава 4',
-    //         youtube_id: 'ddldlldld4',
-    //       },
     //     ],
     //   },
     // ],
@@ -116,14 +86,6 @@ export default {
     //             origText: 'i love you',
     //             transText: 'я люблю тебя',
     //           },
-    //           {
-    //             origText: 'i love my family',
-    //             transText: 'я люблю мою семью',
-    //           },
-    //           {
-    //             origText: 'i love world',
-    //             transText: 'я люблю мир',
-    //           },
     //         ],
     //       },
     //       {
@@ -131,18 +93,6 @@ export default {
     //           {
     //             origText: 'i love you 2',
     //             transText: 'я люблю тебя 2',
-    //           },
-    //           {
-    //             origText: 'i love my family 2',
-    //             transText: 'я люблю мою семью 2',
-    //           },
-    //           {
-    //             origText: 'i love world 2',
-    //             transText: 'я люблю мир 2',
-    //           },
-    //           {
-    //             origText: 'i love world 3',
-    //             transText: 'я люблю мир 3',
     //           },
     //         ],
     //       },
@@ -159,26 +109,6 @@ export default {
     //       {
     //         origWord: 'Hello2',
     //         transWord: 'Привет2',
-    //       },
-    //       {
-    //         origWord: 'Hello3',
-    //         transWord: 'Привет3',
-    //       },
-    //       {
-    //         origWord: 'Hello4',
-    //         transWord: 'Привет4',
-    //       },
-    //       {
-    //         origWord: 'Hello5',
-    //         transWord: 'Привет5',
-    //       },
-    //       {
-    //         origWord: 'Hello6',
-    //         transWord: 'Привет6',
-    //       },
-    //       {
-    //         origWord: 'Hello7',
-    //         transWord: 'Привет7',
     //       },
     //     ],
     //   },

@@ -26,6 +26,12 @@ export default {
 
           if (!userData.books) userData.books = {}
 
+          if (!userData.books) userData.words = {}
+
+          for (var key in userData.books) {
+            if (userData.books.hasOwnProperty.call(userData.books, key)) userData.books[key].addedDate = userData.books[key].addedDate.toDate()
+          }
+
           commit('SET_USER_DATA', userData)
           commit('SET_PROCESSING', false)
         })
@@ -52,6 +58,10 @@ export default {
         )
         .then(() => {
           commit('ADD_USER_BOOK', { bookId: payload, book: book })
+          commit('SET_PROCESSING', false)
+        })
+        .catch(() => {
+          commit('SET_PROCESSING', false)
         })
     },
   },

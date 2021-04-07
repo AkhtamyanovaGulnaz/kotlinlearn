@@ -25,6 +25,10 @@
             </div> -->
             <v-spacer></v-spacer>
             <v-btn class="primary" flat v-if="canLoadBook(book.id)" @click="loadBook(book.id)">Загрузить</v-btn>
+            <div v-if="getUserDataBook(book.id)">
+              <v-icon color="white">work_outline</v-icon>
+              Курс скачан {{ getBookAddedDate(book.id) }}
+            </div>
           </v-card-actions>
         </v-flex>
       </v-layout>
@@ -97,6 +101,10 @@ export default {
     },
     loadBook(bookId) {
       this.$store.dispatch('ADD_USER_BOOK', bookId)
+    },
+    getBookAddedDate(bookId) {
+      let book = this.getUserDataBook(bookId)
+      return book.addedDate.toLocaleDateString()
     },
   },
 }
