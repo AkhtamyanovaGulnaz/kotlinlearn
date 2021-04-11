@@ -1,3 +1,4 @@
+// import { reject, resolve } from 'core-js/fn/promise'
 import firebase from 'firebase'
 // import router from '../router'
 import { EventBus } from '../infrastructure/eventBus'
@@ -10,6 +11,7 @@ export default {
       email: null,
       name: null,
     },
+    unsubscribeAuth: null,
   },
   mutations: {
     SET_USER(state, payload) {
@@ -29,8 +31,25 @@ export default {
         uid: null,
       }
     },
+    SET_UNSUBSCRIBE_AUTH(state, payload) {
+      state.unsubscribeAuth = payload
+    },
   },
   actions: {
+    INIT_AUTH({ dispatch, commit, state }) {
+      return new Promise((resolve) => {
+        if (state.unsubscribeAuth) state.unsubscribeAuth()
+
+        let unsubscribe = firebase.auth().onAuthStateChanged(function(user) {
+          dispatch('STATE_CHANGED', user)
+
+          resolve(user)
+        })
+
+        commit('SET_UNSUBSCRIBE_AUTH', unsubscribe)
+      })
+    },
+
     SIGNUP({ commit }, payload) {
       commit('SET_PROCESSING', true)
       commit('CLEAR_ERROR')

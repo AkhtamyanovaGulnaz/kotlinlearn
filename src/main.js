@@ -8,7 +8,7 @@ import firebaseConfig from './config/firebase'
 import firebase from 'firebase'
 import 'firebase/firestore'
 import VueYouTubeEmbed from 'vue-youtube-embed'
-// import FormattedDate from './filters/formattedDate'
+import FormattedDate from './filters/formattedDate'
 import { setupBus } from './infrastructure/eventBus'
 
 Vue.use(Vuetify)
@@ -16,7 +16,7 @@ Vue.use(VueYouTubeEmbed)
 
 Vue.config.productionTip = false
 
-// Vue.filter('formattedDate', FormattedDate)
+Vue.filter('formattedDate', FormattedDate)
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const db = firebaseApp.firestore()
@@ -33,11 +33,6 @@ new Vue({
   store,
   render: (h) => h(App),
   created() {
-    let vm = this
-    firebase.auth().onAuthStateChanged((user) => {
-      vm.$store.dispatch('STATE_CHANGED', user)
-    })
-
     this.$store.dispatch('LOAD_BOOKS')
   },
 }).$mount('#app')

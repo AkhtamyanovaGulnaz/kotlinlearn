@@ -12,7 +12,7 @@ import Store from '../store'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -45,7 +45,7 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile,
-      beforeEnter: AuthGuard,
+      meta: { authRequired: true },
     },
     {
       path: '/signin',
@@ -57,11 +57,25 @@ export default new Router({
       name: 'signup',
       component: Signup,
     },
+    // {
+    //   path: '/manageBook/:id?',
+    //   name: 'manageBook',
+    //   props: true,
+    //   component: ManageBook,
+    // },
   ],
   mode: 'history',
 })
 
-function AuthGuard(from, to, next) {
-  if (Store.getters.isUserAuthenticated) next()
-  else next('/signin')
-}
+router.beforeEach((to, from, next) => {
+  Store.dispatch('INIT_AUTH').then((user) => {
+    if (to.matched.some((route) => route.meta.authRequired)) {
+      if (user) next()
+      else next('/signin')
+    } else {
+      next()
+    }
+  })
+})
+
+export default router

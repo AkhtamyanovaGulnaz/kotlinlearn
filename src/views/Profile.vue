@@ -15,8 +15,12 @@
           <v-tab-item :key="'data'">
             <user-profile-data></user-profile-data>
           </v-tab-item>
-          <v-tab-item :key="'books'"> </v-tab-item>
-          <v-tab-item :key="'words'"> </v-tab-item>
+          <v-tab-item :key="'books'">
+            <books-list :onlyMy="true"></books-list>
+          </v-tab-item>
+          <v-tab-item :key="'words'">
+            <user-profile-words> </user-profile-words>
+          </v-tab-item>
         </v-tabs>
       </v-flex>
     </v-layout>
@@ -25,6 +29,9 @@
 
 <script>
 import userProfileData from '../components/UserProfileData'
+import userProfileWords from '../components/UserProfileWords'
+import booksList from '../components/BooksList'
+
 export default {
   data() {
     return {
@@ -33,6 +40,8 @@ export default {
   },
   components: {
     userProfileData,
+    userProfileWords,
+    booksList,
   },
 }
 </script>

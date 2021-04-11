@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-layout row class="hidden-sm-and-down">
         <v-flex xs6 md5>
-          <v-card-media :src="book.imageUrl" height="150px"> </v-card-media>
+          <v-img :src="book.imageUrl" height="150px"> </v-img>
           <div class="text-xs-center">
             <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
@@ -27,7 +27,7 @@
             <v-btn class="primary" flat v-if="canLoadBook(book.id)" @click="loadBook(book.id)">Загрузить</v-btn>
             <div v-if="getUserDataBook(book.id)">
               <v-icon color="white">work_outline</v-icon>
-              Курс скачан {{ getBookAddedDate(book.id) }}
+              Курс скачан {{ getBookAddedDate(book.id) | formattedDate }}
             </div>
           </v-card-actions>
         </v-flex>
@@ -35,8 +35,7 @@
       <div class="hidden-md-and-up">
         <v-layout row>
           <v-flex xs6 md5>
-            <v-card-media src="https://i0.wp.com/blog.zenika.com/wp-content/uploads/2018/03/Kotlin-A-New-Programming-Platform-For-Android-Developers-1.png?fit=1000%2C500&ssl=1" height="100px">
-            </v-card-media>
+            <v-img :src="book.imageUrl" height="100px"> </v-img>
           </v-flex>
           <v-flex xs8 md9>
             <v-card-title>
@@ -104,7 +103,7 @@ export default {
     },
     getBookAddedDate(bookId) {
       let book = this.getUserDataBook(bookId)
-      return book.addedDate.toLocaleDateString()
+      return book.addedDate
     },
   },
 }

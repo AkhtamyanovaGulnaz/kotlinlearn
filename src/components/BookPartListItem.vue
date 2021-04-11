@@ -4,6 +4,10 @@
       <v-card-title primary-title class="headline">{{ part.title }} </v-card-title>
       <v-card-actions>
         <v-spacer></v-spacer>
+        <div v-if="finishedDate" class="mr-2">
+          <v-icon dark>check</v-icon>
+          Изучено {{ finishedDate | formattedDate }}
+        </div>
         <v-btn flat class="primary" v-if="isUserBookLoaded()" :to="{ name: 'bookPart', params: { bookId: bookId, partId: part.id } }">Открыть</v-btn>
         <!-- <v-btn flat class="primary" :to="{ name: 'bookPart', params: { bookId: bookId, partId: part.id } }">Открыть</v-btn> -->
       </v-card-actions>
@@ -26,6 +30,12 @@ export default {
   },
   computed: {
     ...mapGetters(['isUserAuthenticated', 'userData', 'getProcessing']),
+    finishedDate() {
+      if (!this.isUserAuthenticated) return false
+
+      let book = this.userData.books[this.bookId]
+      if (book && book.parts[this.part.id]) return book.parts[this.part.id].finishedDate
+    },
   },
   methods: {
     isUserBookLoaded() {
