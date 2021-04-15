@@ -12,10 +12,10 @@
       <v-slider v-model="fontSize" :label="`Размер шрифта (${fontSize})`" step="1" max="30" min="10" tick-size="5"></v-slider>
       <v-tabs v-model="tabMode" color="accent" dark fixed-tabs slider-color="success">
         <v-tab :key="'origin'" ripple>
-          Текст с подсказками
+          Задания с подсказками
         </v-tab>
         <v-tab :key="'sidebyside'" ripple>
-          Параллельно
+          Дополнительно
         </v-tab>
         <v-tab-item :key="'origin'">
           <div v-for="(paragraph, i) in part.content" :key="`par${i}`">
@@ -38,7 +38,7 @@
                 <span>&nbsp;&nbsp;</span>
                 <span v-for="(sentence, y) in paragraph.sentences" :key="`par2${i}sen2${y}_orig`" :style="textStyle">
                   <span>
-                    {{ sentence.origText }}
+                    {{ sentence.origText2 }}
                   </span>
                 </span>
               </v-flex>
@@ -46,7 +46,7 @@
                 <span>&nbsp;&nbsp;</span>
                 <span v-for="(sentence, y) in paragraph.sentences" :key="`par2${i}sen2${y}_trans`" :style="textStyle">
                   <span>
-                    {{ sentence.transText }}
+                    {{ sentence.transText2 }}
                   </span>
                 </span>
               </v-flex>

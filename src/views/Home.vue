@@ -1,9 +1,9 @@
 <template>
   <div>
     <section>
-      <v-parallax :src="require('../assets/parallax-top.jpg')" height="450">
+      <v-parallax height="370" :src="require('../assets/parallax-top5.jpg')">
         <v-layout column align-center justify-center class="white--text">
-          <img src="../assets/kotlin_language.png" alt="Я Учу Kotlin" height="200" />
+          <img src="../assets/kotlin_language.png" alt="Я Учу Kotlin" height="150" />
           <h1 class="white--text mb-2 display-2 text-xs-center">Я Учу Kotlin!</h1>
         </v-layout>
       </v-parallax>
@@ -70,10 +70,10 @@
           <v-flex xs12 sm8>
             <v-card class="elevation-0 transparent">
               <v-card-title primary-title class="layout justify-center">
-                <div class="headline">Случайные книги</div>
+                <div class="headline">Случайные курсы</div>
               </v-card-title>
               <v-card-text class="layout justify-center">
-                <v-carousel>
+                <v-carousel height="330px">
                   <v-carousel-item style="cursor: pointer" v-for="(book, i) in books" :key="i" :src="book.imageUrl" @click="goToBook(book.id)">
                     <div class="bookTitle">{{ book.title }}</div>
                   </v-carousel-item>
@@ -94,7 +94,7 @@
                 <div class="headline">О проекте</div>
               </v-card-title>
               <v-card-text>
-                Этот веб-сайт является дополнением к YouTube-каналу. С любыми вопросами или предложениями обращайтесь сюда
+                Этот веб-сайт является дополнением к YouTube-каналам. С любыми вопросами или предложениями обращайтесь сюда
               </v-card-text>
               <v-list class="transperent">
                 <v-list-tile>

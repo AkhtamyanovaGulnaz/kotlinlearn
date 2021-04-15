@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-layout row class="hidden-sm-and-down">
         <v-flex xs6 md5>
-          <v-img :src="book.imageUrl" height="100px"> </v-img>
+          <v-img :src="book.imageUrl" height="230px" width="290"> </v-img>
           <div class="text-xs-center">
             <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
@@ -14,7 +14,7 @@
               <div class="headline">{{ book.title }}</div>
               <div>{{ book.description }}</div>
               <v-divider class="white"></v-divider>
-              <div>Уровень: {{ getBookLevel(book.level) }}, {{ book.parts.length }} частей</div>
+              <div>Уровень: {{ getBookLevel(book.level) }}; Количество частей: {{ book.parts.length }}</div>
             </div>
           </v-card-title>
           <v-card-actions>
@@ -31,7 +31,7 @@
       <div class="hidden-md-and-up">
         <v-layout row>
           <v-flex xs6 md5>
-            <v-img :src="book.imageUrl" height="100px"> </v-img>
+            <v-img :src="book.imageUrl" height="120px" width="220"> </v-img>
           </v-flex>
           <v-flex xs8 md9>
             <v-card-title>
@@ -51,7 +51,7 @@
         </v-layout>
         <v-layout row>
           <v-flex xs12>
-            <div>Уровень: {{ getBookLevel(book.level) }}, {{ book.parts.length }} частей</div>
+            <div>Уровень: {{ getBookLevel(book.level) }}; Количество частей: {{ book.parts.length }}</div>
           </v-flex>
         </v-layout>
         <v-layout row>

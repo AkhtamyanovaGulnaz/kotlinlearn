@@ -52,7 +52,7 @@ export default {
 
           if (!userData.books) userData.books = {}
 
-          console.log({ userData })
+          // console.log({ userData })
 
           if (!userData.words) userData.words = {}
 
