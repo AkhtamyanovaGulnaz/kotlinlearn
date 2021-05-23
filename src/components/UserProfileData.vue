@@ -18,15 +18,15 @@
                 {{ getError }}
               </v-alert>
               <v-form v-model="valid">
-                <v-text-field prepend-icon="person" name="login" label="Е-мейл" type="email" required v-model="email" :rules="emailRules"></v-text-field>
+                <v-text-field prepend-icon="person" name="login" label="E-mail" type="email" required v-model="email" :rules="emailRules"></v-text-field>
                 <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
 
                 <h3>Я хочу изменить</h3>
                 <v-radio-group v-model="changeType">
                   <v-radio label="Имя" :value="'name'"></v-radio>
                   <v-text-field v-if="changeType == 'name'" prepend-icon="person" name="newName" label="Новое имя" type="text" required v-model="newName" :rules="nameRules"></v-text-field>
-                  <v-radio label="Е-мейл" :value="'email'"></v-radio>
-                  <v-text-field v-if="changeType == 'email'" prepend-icon="email" name="newLogin" label="Новый е-мейл" type="email" required v-model="newEmail" :rules="emailRules"></v-text-field>
+                  <v-radio label="E-mail" :value="'email'"></v-radio>
+                  <v-text-field v-if="changeType == 'email'" prepend-icon="email" name="newLogin" label="Новый e-mail" type="email" required v-model="newEmail" :rules="emailRules"></v-text-field>
                   <v-radio label="Пароль" :value="'password'"></v-radio>
                   <v-text-field
                     v-if="changeType == 'password'"
@@ -71,7 +71,7 @@ export default {
       valid: false,
 
       nameRules: [(v) => !!v || 'Пожалуйста введите Ваше имя'],
-      emailRules: [(v) => !!v || 'Пожалуйста введите е-майл', (v) => /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильный е-майл'],
+      emailRules: [(v) => !!v || 'Пожалуйста введите e-mail', (v) => /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильный e-mail'],
       passwordRules: [(v) => !!v || 'Пожалуйста введите пароль', (v) => (v && v.length >= 6) || 'Пароль слишком короткий - минимум 6 символов'],
     }
   },

@@ -24,7 +24,7 @@
               <span>
                 {{ sentence.origText }}
               </span>
-              <v-icon :size="fontSize" @click.prevent="toggleVisibility(i, y)">help</v-icon>
+               <v-icon v-if="sentence.origText" :size="fontSize" @click.prevent="toggleVisibility(i, y)">help</v-icon>
               <span v-if="getVisibilityFlag(i, y).value" class="success--text" style="font-weight:bold">
                 {{ sentence.transText }}
               </span>
