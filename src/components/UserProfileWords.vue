@@ -72,7 +72,8 @@ export default {
       this.currentWord = this.words.length > 0 ? this.words[0] : null
     },
     processWord(word) {
-      this.$store.dispatch('PROCESS_USER_WORD', word.key)
+      this.$store.dispatch('PROCESS_USER_WORD', word.key);
+      this.setWords();
     },
     selectWord(word) {
       word.showTrans = false

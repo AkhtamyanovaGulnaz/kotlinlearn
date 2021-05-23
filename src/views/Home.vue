@@ -28,7 +28,7 @@
                     <div class="headline text-xs-center">Изучай курсы</div>
                   </v-card-title>
                   <v-card-text class="layout justify-center">
-                    Изучай вывдылвдывлывлдывлдывдыфдвл дывлдлвд длвылвд. Выбирай то, что нравится лично тебе!
+                    Изучай материалы курсов, смотри видео и выполняй задания. Выбирай то, что нравится лично тебе!
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -41,7 +41,7 @@
                     <div class="headline">Учи слова</div>
                   </v-card-title>
                   <v-card-text class="layout justify-center">
-                    Учи новые слова и выражения: каждый курс содержит набор самых интересных и важных слов, которые Вы можете добавить в свой личный список для изучения
+                    Учи новые слова и термины: каждый курс содержит набор самых интересных и важных слов, которые Вы можете добавить в свой личный список для изучения
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -54,7 +54,7 @@
                     <div class="headline text-xs-center">Учись на любом устройстве</div>
                   </v-card-title>
                   <v-card-text class="layout justify-center">
-                    Этот веб-сайт оптимизирован для работы на любом устройстве: учись со своего стационарного компьютера, планшета или мобильного телефона
+                    Это web-приложение оптимизировано для работы на любом устройстве: учись со своего стационарного компьютера, планшета или мобильного телефона!
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -73,11 +73,14 @@
                 <div class="headline">Случайные курсы</div>
               </v-card-title>
               <v-card-text class="layout justify-center">
-                <v-carousel height="330px">
-                  <v-carousel-item style="cursor: pointer" v-for="(book, i) in books" :key="i" :src="book.imageUrl" @click="goToBook(book.id)">
-                    <div class="bookTitle">{{ book.title }}</div>
-                  </v-carousel-item>
-                </v-carousel>
+                  <v-carousel
+                    height="250px"
+                    style="width:380px"
+                  >
+                    <v-carousel-item style="cursor: pointer;" v-for="(book, i) in books" :key="i" :src="book.imageUrl" @click="goToBook(book.id)">
+                      <div class="bookTitle">{{ book.title }}</div>
+                    </v-carousel-item>
+                  </v-carousel>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -94,7 +97,7 @@
                 <div class="headline">О проекте</div>
               </v-card-title>
               <v-card-text>
-                Этот веб-сайт является дополнением к YouTube-каналам. С любыми вопросами или предложениями обращайтесь сюда
+                Это web-приложение является дополнением к YouTube-каналам. С любыми вопросами или предложениями обращайтесь на почту
               </v-card-text>
               <v-list class="transperent">
                 <v-list-tile>
@@ -102,7 +105,7 @@
                     <v-icon class="blue--text text--lighten-2">email</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
-                    <v-list-tile-title>learnkotlin@gmail.com</v-list-tile-title>
+                    <v-list-tile-title>learnkotlintoday@gmail.com</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
@@ -142,7 +145,7 @@ export default {
 .bookTitle {
   position: absolute;
   color: white;
-  font-size: 2em;
+  font-size: 1.2em;
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;

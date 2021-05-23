@@ -5,7 +5,8 @@
         <v-flex xs6 md5>
           <v-img :src="book.imageUrl" height="230px" width="290"> </v-img>
           <div class="text-xs-center">
-            <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
+            <v-btn flat color="white" :href="getYoutubePlaylistLink(book.youtube_playlist_id)" target="_blank">
+              <v-icon left>visibility</v-icon> YouTube </v-btn>
           </div>
         </v-flex>
         <v-flex xs8 md9>
@@ -42,7 +43,8 @@
               <div>
                 <h4>{{ book.title }}</h4>
                 <div class="text-xs-center">
-                  <v-btn flat color="white"> <v-icon left>visibility</v-icon> YouTube </v-btn>
+                  <v-btn flat color="white" :href="getYoutubePlaylistLink(book.youtube_playlist_id)" target="_blank"> 
+                    <v-icon left>visibility</v-icon> YouTube </v-btn>
                 </div>
               </div>
             </v-card-title>
@@ -105,6 +107,7 @@ export default {
       let book = this.getUserDataBook(bookId)
       return book.addedDate
     },
+    getYoutubePlaylistLink: (yId) => `https://www.youtube.com/playlist?list=${yId}`
   },
 }
 </script>

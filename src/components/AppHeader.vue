@@ -74,7 +74,7 @@ export default {
         ? [
             {
               icon: 'visibility',
-              title: 'Читать',
+              title: 'Изучать',
               route: '/books',
             },
             {
@@ -86,7 +86,7 @@ export default {
         : [
             {
               icon: 'visibility',
-              title: 'Читать',
+              title: 'Изучать',
               route: '/books',
             },
             {

@@ -11,8 +11,8 @@
               {{ error }}
             </v-alert>
             <v-form v-model="valid">
-              <v-text-field prepend-icon="email" name="login" label="Е-мейл" type="email" required v-model="email" :rules="emailRules"></v-text-field>
-              <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
+              <v-text-field prepend-icon="email" name="login" label="E-mail" type="email" required v-model="email" :rules="emailRules"></v-text-field>
+              <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules" v-on:keyup.enter="signin"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -32,7 +32,7 @@ export default {
       email: null,
       password: null,
       valid: false,
-      emailRules: [(v) => !!v || 'Пожалуйста введите е-майл', (v) => /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильный е-майл'],
+      emailRules: [(v) => !!v || 'Пожалуйста введите E-mail', (v) => /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильный e-mail'],
       passwordRules: [(v) => !!v || 'Пожалуйста введите пароль', (v) => (v && v.length >= 6) || 'Пароль слишком короткий - минимум 6 символов'],
     }
   },
