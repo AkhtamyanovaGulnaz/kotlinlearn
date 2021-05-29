@@ -49,7 +49,6 @@ export default {
         commit('SET_UNSUBSCRIBE_AUTH', unsubscribe)
       })
     },
-
     SIGNUP({ commit }, payload) {
       commit('SET_PROCESSING', true)
       commit('CLEAR_ERROR')
@@ -61,6 +60,32 @@ export default {
             .auth()
             .currentUser.updateProfile({ displayName: payload.name })
             .then(() => commit('SET_USER_NAME', payload.name))
+          commit('SET_PROCESSING', false)
+        })
+        .catch(function(error) {
+          commit('SET_PROCESSING', false)
+          commit('SET_ERROR', error.message)
+        })
+    },
+    SIGNUPWITHFACEBOOK({commit}) {
+      commit('SET_PROCESSING', true)
+      firebase
+        .auth()
+        .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then(() => {
+          commit('SET_PROCESSING', false)
+        })
+        .catch(function(error) {
+          commit('SET_PROCESSING', false)
+          commit('SET_ERROR', error.message)
+        })
+    },
+    SIGNWITHGOOGLE({commit}) {
+      commit('SET_PROCESSING', true)
+      firebase
+        .auth()
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then(() => {
           commit('SET_PROCESSING', false)
         })
         .catch(function(error) {
@@ -83,7 +108,7 @@ export default {
         })
     },
     SIGNOUT() {
-      firebase.auth().signOut()
+      firebase.auth().signOut();
     },
     STATE_CHANGED({ commit, dispatch }, payload) {
       if (payload) {

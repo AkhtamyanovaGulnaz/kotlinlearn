@@ -35,6 +35,7 @@ export default {
 
       let book = this.userData.books[this.bookId]
       if (book && book.parts[this.part.id]) return book.parts[this.part.id].finishedDate
+      return null
     },
   },
   methods: {

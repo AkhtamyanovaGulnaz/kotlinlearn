@@ -16,9 +16,18 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" @click.prevent="signin" :disabled="processing || !valid">Войти</v-btn>
+            <v-btn style="flex: 1" color="primary" @click.prevent="googleLogin">Google</v-btn>
+            <v-btn style="flex: 1" color="primary" @click.prevent="facebookLogin">Facebook</v-btn>
+            <v-btn style="flex: 1" color="primary" @click.prevent="signin" :disabled="processing || !valid">Войти</v-btn>
           </v-card-actions>
+          <!-- <v-card-actions>
+             <v-spacer></v-spacer>
+            <v-btn color="primary" @click.prevent="googleLogin">Войти через Google</v-btn>
+           </v-card-actions> -->
+           <!-- <v-card-actions>
+             <v-spacer></v-spacer>
+            
+           </v-card-actions> -->
         </v-card>
       </v-flex>
     </v-layout>
@@ -56,6 +65,12 @@ export default {
     signin() {
       this.$store.dispatch('SIGNIN', { email: this.email, password: this.password })
     },
+    facebookLogin() {
+      this.$store.dispatch('SIGNUPWITHFACEBOOK');
+    },
+    googleLogin() {
+      this.$store.dispatch('SIGNWITHGOOGLE');
+    }
   },
 }
 </script>

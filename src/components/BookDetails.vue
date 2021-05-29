@@ -63,11 +63,11 @@
         <v-layout row>
           <v-flex xs12>
             <v-card-actions>
-              <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
+              <!-- <v-rating v-model="book.rating" color="yellow" readonly dense half-increments></v-rating>
               <div class="ml-1">
                 <span>{{ book.rating }}</span>
                 <span>({{ book.ratingsCount }})</span>
-              </div>
+              </div> -->
               <v-spacer></v-spacer>
               <v-btn class="primary" flat>Загрузить</v-btn>
             </v-card-actions>
