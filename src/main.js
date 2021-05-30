@@ -11,7 +11,11 @@ import VueYouTubeEmbed from 'vue-youtube-embed'
 import FormattedDate from './filters/formattedDate'
 import { setupBus } from './infrastructure/eventBus'
 
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
+})
+
 Vue.use(VueYouTubeEmbed)
 
 Vue.config.productionTip = false

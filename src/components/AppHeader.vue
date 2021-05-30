@@ -57,7 +57,7 @@
         <v-dialog v-model="dialog" width="350" v-if="isUserAuthenticated">
           <template v-slot:activator="{ on, attrs }">
             <v-btn flat v-bind="attrs" v-on="on">
-              <v-icon left>logout</v-icon>
+              <v-icon left>mdi-anchor</v-icon>
               Выйти
             </v-btn>
           </template>
